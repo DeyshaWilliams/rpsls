@@ -1,6 +1,8 @@
 #import child classes
-from Human import human
-from Art_Intel import art_intel
+from Human import Human
+from Art_Intel import Art_intel
+import random
+import time
 #greet user
 #ask about players
 #utilize classes to carry out each round (3)
@@ -15,10 +17,12 @@ from Art_Intel import art_intel
 class arena:
     def __init__(self):
         self.name = ''
+        self.who_plays()
         pass
 
     def run_game(self):
         pass
+        
 
     def greeting(self):
         pass
@@ -29,12 +33,24 @@ class arena:
     def play_again(self):
         pass
 
-    def human_plays(self):
-        self.human = human
-
-    def ai_plays(self):
-        self.ai = art_intel
-
     def who_plays(self):
-        self.players = input('How many human players dare to play? (Choose 0, 1, or 2)')
-        return self.players
+        is_correct = False
+        
+        while is_correct == False:
+            self.players = input('How many human players dare to play? (Choose 0, 1, or 2) ')
+            
+            if self.players == '0':
+                self.a1 = Art_intel('Arty')
+                self.a2 = Art_intel('Atticus')
+                is_correct = True
+            elif self.players == '1':
+                self.human = Human(input('What is your name? '))
+                self.ai = Art_intel('A1 Sauce')
+                is_correct = True
+            elif self.players == '2':
+                self.h1 = Human(input('What is your name? '))
+                self.h2 = Human(input('What is your name? '))
+                is_correct = True
+            else:
+                print(f'{self.players} was not an option.')
+                time.sleep(1)
