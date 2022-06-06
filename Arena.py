@@ -68,6 +68,9 @@ class arena:
         elif self.p1_turn == 'Lizard' and self.p2_turn == 'Scizzors':
             print(f'Scizzors decapitate Lizard! {self.p2.name} wins this round!')
             self.p2.wins += 1
+        elif self.p1_turn == 'Spock' and self.p2_turn == 'Scizzors':
+            print(f'Spock smashes Scizzors! {self.p1.name} wins this round!')
+            self.p1.wins += 1
         elif self.p2_turn == 'Rock' and self.p1_turn == 'Paper':
             print(f'Paper covers Rock! {self.p1.name} wins this round!')
             self.p1.wins += 1
@@ -93,11 +96,16 @@ class arena:
             print(f'Lizard poisons Spock! {self.p2.name} wins this round!')
             self.p2.wins += 1
         else:
-            print(f'Lizard poisons Spock! {self.p2.name} wins this round!')
+            print(f'Spock smashes Scizzors! {self.p2.name} wins this round!')
             self.p2.wins += 1
+        time.sleep(1.5)
 
     def announce_winner(self):
-        pass
+        if self.p1.wins == 2:
+            print(f'{self.p1.name} has won against {self.p2.name}!')
+        else:
+            print(f'{self.p2.name} has won against {self.p1.name}!')
+        time.sleep(1.5)
 
     def greeting(self):
         print(f'''
