@@ -1,4 +1,5 @@
 #import child classes
+from re import L
 from Human import Human
 from Art_Intel import Art_intel
 import random
@@ -38,7 +39,7 @@ class arena:
         
         while is_correct == False:
             self.players = input('How many human players dare to play? (Choose 0, 1, or 2) ')
-            
+
             if self.players == '0':
                 self.a1 = Art_intel('Arty')
                 self.a2 = Art_intel('Atticus')
