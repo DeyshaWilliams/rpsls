@@ -26,7 +26,11 @@ class arena:
         is_done = False
         while is_done == False:
             self.round_winner()
-            self.play_again()
+            if self.p1.wins == 2 or self.p2.wins == 2:
+                self.announce_winner()
+                self.play_again()
+                
+            
             pass
 
     def rounds(self):
@@ -34,12 +38,63 @@ class arena:
         self.p2_turn = self.p2.choose_move()
 
     def round_winner(self):
-        for round in self.rounds():
-            if self.p1_turn == self.p2_turn:
-                print("It's a tie!")
-            elif self.p1_turn == '':
-                ''
-        pass
+        self.rounds()
+        if self.p1_turn == self.p2_turn:
+            print("It's a tie!")
+        elif self.p1_turn == 'Rock' and self.p2_turn == 'Paper':
+            print(f'Paper covers Rock! {self.p2.name} wins this round!')
+            self.p2.wins += 1
+        elif self.p1_turn == 'Rock' and self.p2_turn == 'Scizzors':
+            print(f'Rock crushes Scizzors! {self.p1.name} wins this round!')
+            self.p1.wins += 1
+        elif self.p1_turn == 'Rock' and self.p2_turn == 'Lizard':
+            print(f'Rock smashes Lizard! {self.p2.name} wins this round!')
+            self.p2.wins += 1
+        elif self.p1_turn == 'Rock' and self.p2_turn == 'Spock':
+            print(f'Spock vaporizes Rock! {self.p2.name} wins this round!')
+            self.p2.wins += 1
+        elif self.p1_turn == 'Paper' and self.p2_turn == 'Scizzors':
+            print(f'Scizzors cuts Paper! {self.p2.name} wins this round!')
+            self.p2.wins += 1
+        elif self.p1_turn == 'Paper' and self.p2_turn == 'Lizard':
+            print(f'Lizard eats Paper! {self.p2.name} wins this round!')
+            self.p2.wins += 1
+        elif self.p1_turn == 'Paper' and self.p2_turn == 'Spock':
+            print(f'Paper disproves Spock! {self.p1.name} wins this round!')
+            self.p2.wins += 1
+        elif self.p1_turn == 'Lizard' and self.p2_turn == 'Spock':
+            print(f'Lizard poisons Spock! {self.p1.name} wins this round!')
+            self.p1.wins += 1
+        elif self.p1_turn == 'Lizard' and self.p2_turn == 'Scizzors':
+            print(f'Scizzors decapitate Lizard! {self.p2.name} wins this round!')
+            self.p2.wins += 1
+        elif self.p2_turn == 'Rock' and self.p1_turn == 'Paper':
+            print(f'Paper covers Rock! {self.p1.name} wins this round!')
+            self.p1.wins += 1
+        elif self.p2_turn == 'Rock' and self.p1_turn == 'Scizzors':
+            print(f'Rock crushes Scizzors! {self.p2.name} wins this round!')
+            self.p2.wins += 1
+        elif self.p2_turn == 'Rock' and self.p1_turn == 'Lizard':
+            print(f'Rock smashes Lizard! {self.p1.name} wins this round!')
+            self.p1.wins += 1
+        elif self.p2_turn == 'Rock' and self.p1_turn == 'Spock':
+            print(f'Spock vaporizes Rock! {self.p1.name} wins this round!')
+            self.p1.wins += 1
+        elif self.p2_turn == 'Paper' and self.p1_turn == 'Scizzors':
+            print(f'Scizzors cuts Paper! {self.p1.name} wins this round!')
+            self.p1.wins += 1
+        elif self.p2_turn == 'Paper' and self.p1_turn == 'Lizard':
+            print(f'Lizard eats Paper! {self.p1.name} wins this round!')
+            self.p1.wins += 1
+        elif self.p2_turn == 'Paper' and self.p1_turn == 'Spock':
+            print(f'Paper disproves Spock! {self.p2.name} wins this round!')
+            self.p2.wins += 1
+        elif self.p2_turn == 'Lizard' and self.p1_turn == 'Spock':
+            print(f'Lizard poisons Spock! {self.p2.name} wins this round!')
+            self.p2.wins += 1
+        else:
+            print(f'Lizard poisons Spock! {self.p2.name} wins this round!')
+            self.p2.wins += 1
 
     def announce_winner(self):
         pass
