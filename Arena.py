@@ -1,5 +1,4 @@
 #import child classes
-from re import L
 from Human import Human
 from Art_Intel import Art_intel
 import random
@@ -17,22 +16,70 @@ import time
 
 class arena:
     def __init__(self):
-        self.name = ''
+        self.name = 'Rock, Paper, Scizzors, Lizard, Spock'
         self.who_plays()
         pass
 
     def run_game(self):
+        self.greeting()
+        is_done = False
+        while is_done == False:
+            self.rounds()
+            self.play_again()
+            pass
+
         pass
-        
+
+    def rounds(self):
+        pass
+
+    def round_winner(self):
+        pass
+
+    def announce_winner(self):
+        pass
 
     def greeting(self):
-        pass
+        print(f'''
+********************************************************************************************
+    Welcome to {self.name}!
+    Here you will find the best of the best and maybe find if you are among them.
+    The rules are simple:
+        ''')
+        {time.sleep(2)}
+        print('''
+    Rock beats Scizzors;
+    Scizzors beat Paper:
+    Paper beats Rock;
+    Rock beats Lizard;
+    Lizard beats Spock;
+        ''')
+        {time.sleep(2)}
+        print('''
+    Spock beats Scizzors;
+    Scizzors beat Lizard;
+    Lizard beats Paper;
+    Paper beats Spock;
+    Spock beats Rock.
+        ''')
+        {time.sleep(2)}
+        print('''
+    Winner is best out of 3 rounds.
+    ......................... Good luck ;) ..........................
+********************************************************************************************        
+        ''')
+        {time.sleep(3)}    
 
     def ending(self):
+        print(f'Thank you for playing {self.name} with us! {time.sleep(.6)}Come again!')
         pass
 
     def play_again(self):
-        pass
+        user_input = input(f'Would you like to play {self.name} again? (y/n) ')
+        if user_input == 'n':
+            self.ending()
+            is_done = True
+        return is_done
 
     def who_plays(self):
         is_correct = False
@@ -41,16 +88,16 @@ class arena:
             self.players = input('How many human players dare to play? (Choose 0, 1, or 2) ')
 
             if self.players == '0':
-                self.a1 = Art_intel('Arty')
-                self.a2 = Art_intel('Atticus')
+                self.p1 = Art_intel('Arty')
+                self.p2 = Art_intel('Atticus')
                 is_correct = True
             elif self.players == '1':
-                self.human = Human(input('What is your name? '))
-                self.ai = Art_intel('A1 Sauce')
+                self.p1 = Human(input('What is your name? '))
+                self.p2 = Art_intel('A1 Sauce')
                 is_correct = True
             elif self.players == '2':
-                self.h1 = Human(input('What is your name? '))
-                self.h2 = Human(input('What is your name? '))
+                self.p1 = Human(input('What is your name? '))
+                self.p2 = Human(input('What is your name? '))
                 is_correct = True
             else:
                 print(f'{self.players} was not an option.')
