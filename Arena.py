@@ -1,7 +1,6 @@
 #import child classes
 from Human import Human
 from Art_Intel import Art_intel
-import random
 import time
 #greet user
 #ask about players
@@ -17,23 +16,29 @@ import time
 class arena:
     def __init__(self):
         self.name = 'Rock, Paper, Scizzors, Lizard, Spock'
-        self.who_plays()
+        self.p1 = None
+        self.p2 = None
         pass
 
     def run_game(self):
         self.greeting()
+        self.who_plays()
         is_done = False
         while is_done == False:
-            self.rounds()
+            self.round_winner()
             self.play_again()
             pass
 
-        pass
-
     def rounds(self):
-        pass
+        self.p1_turn = self.p1.choose_move()
+        self.p2_turn = self.p2.choose_move()
 
     def round_winner(self):
+        for round in self.rounds():
+            if self.p1_turn == self.p2_turn:
+                print("It's a tie!")
+            elif self.p1_turn == '':
+                ''
         pass
 
     def announce_winner(self):
@@ -79,6 +84,7 @@ class arena:
         if user_input == 'n':
             self.ending()
             is_done = True
+            quit()
         return is_done
 
     def who_plays(self):
