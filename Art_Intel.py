@@ -11,3 +11,4 @@ class Art_intel(Player):
         self.chosen = random.choice(self.moves)
         print(f'{self.name} has chosen {self.chosen}!')
         time.sleep(1.5)
+        return self.chosen

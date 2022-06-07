@@ -25,4 +25,5 @@ class Human(Player):
                 except IndexError as error:
                     print('Invalid choice...', error)
                     time.sleep(1)
-        time.sleep(1.5)    
+        time.sleep(1.5)
+        return self.chosen

@@ -29,9 +29,6 @@ class arena:
             if self.p1.wins == 2 or self.p2.wins == 2:
                 self.announce_winner()
                 self.play_again()
-                
-            
-            pass
 
     def rounds(self):
         self.p1_turn = self.p1.choose_move()
@@ -139,16 +136,15 @@ class arena:
         {time.sleep(3)}    
 
     def ending(self):
-        print(f'Thank you for playing {self.name} with us! {time.sleep(.6)}Come again!')
-        pass
+        print(f'Thank you for playing {self.name} with us!')
+        {time.sleep(.6)}
+        print(f'Come again!')
 
     def play_again(self):
         user_input = input(f'Would you like to play {self.name} again? (y/n) ')
         if user_input == 'n':
             self.ending()
-            is_done = True
             quit()
-        return is_done
 
     def who_plays(self):
         is_correct = False
